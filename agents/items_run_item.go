@@ -17,7 +17,7 @@ package agents
 import (
 	"fmt"
 
-	"github.com/nlpodyssey/openai-agents-go/openaitypes"
+	"github.com/aaron-maxima/openai-agents-go/openaitypes"
 	"github.com/openai/openai-go/v3/responses"
 )
 

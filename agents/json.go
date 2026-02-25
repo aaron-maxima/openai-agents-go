@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/xeipuuv/gojsonschema"
 )
 

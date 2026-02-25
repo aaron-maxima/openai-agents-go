@@ -17,7 +17,7 @@ package agentstesting
 import (
 	"context"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"
 	"github.com/openai/openai-go/v3/shared/constant"

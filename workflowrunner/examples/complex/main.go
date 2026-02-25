@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nlpodyssey/openai-agents-go/workflowrunner"
+	"github.com/aaron-maxima/openai-agents-go/workflowrunner"
 )
 
 // This example demonstrates a richer workflow declaration with handoffs, tools,

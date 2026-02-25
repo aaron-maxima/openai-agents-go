@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/agents/extensions/visualization"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents/extensions/visualization"
 	"github.com/stretchr/testify/assert"
 )
 

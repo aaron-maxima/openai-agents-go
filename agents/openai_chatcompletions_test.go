@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/openai/openai-go/v3"
 	"github.com/openai/openai-go/v3/option"
 	"github.com/openai/openai-go/v3/packages/param"

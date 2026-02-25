@@ -14,10 +14,10 @@ import (
 	"slices"
 	"time"
 
+	"github.com/aaron-maxima/openai-agents-go/asyncqueue"
+	"github.com/aaron-maxima/openai-agents-go/asynctask"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/gorilla/websocket"
-	"github.com/nlpodyssey/openai-agents-go/asyncqueue"
-	"github.com/nlpodyssey/openai-agents-go/asynctask"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
 	"github.com/openai/openai-go/v3"
 )
 

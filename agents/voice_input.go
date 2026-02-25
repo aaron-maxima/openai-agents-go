@@ -18,10 +18,10 @@ import (
 	"encoding/base64"
 	"fmt"
 
+	"github.com/aaron-maxima/openai-agents-go/asyncqueue"
+	"github.com/aaron-maxima/openai-agents-go/util"
 	"github.com/go-audio/audio"
 	"github.com/go-audio/wav"
-	"github.com/nlpodyssey/openai-agents-go/asyncqueue"
-	"github.com/nlpodyssey/openai-agents-go/util"
 )
 
 const (

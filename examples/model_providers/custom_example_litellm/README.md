@@ -249,7 +249,7 @@ model_list:
 ## 📚 Further Reading
 
 - [LiteLLM Documentation](https://docs.litellm.ai/)
-- [OpenAI Agents Go SDK](https://github.com/nlpodyssey/openai-agents-go)
+- [OpenAI Agents Go SDK](https://github.com/aaron-maxima/openai-agents-go)
 - [Supported LiteLLM Providers](https://docs.litellm.ai/docs/providers)
 
 ---

@@ -21,9 +21,9 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/aaron-maxima/openai-agents-go/util/transforms"
 	"github.com/invopop/jsonschema"
 	"github.com/matteo-grella/dwarfreflect"
-	"github.com/nlpodyssey/openai-agents-go/util/transforms"
 	"github.com/openai/openai-go/v3/packages/param"
 )
 

@@ -19,8 +19,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/agentstesting"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agentstesting"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

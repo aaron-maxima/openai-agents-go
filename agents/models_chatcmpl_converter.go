@@ -22,8 +22,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
-	"github.com/nlpodyssey/openai-agents-go/openaitypes"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/openaitypes"
 	"github.com/openai/openai-go/v3"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"

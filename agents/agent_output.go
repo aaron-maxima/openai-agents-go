@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"reflect"
 
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/invopop/jsonschema"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
 	"github.com/xeipuuv/gojsonschema"
 )
 

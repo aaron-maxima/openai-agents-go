@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/agents/extensions/handoff_prompt"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents/extensions/handoff_prompt"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"
 )

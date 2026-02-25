@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/asynctask"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/asynctask"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 )
 
 // RunnerService orchestrates building and executing workflow requests.

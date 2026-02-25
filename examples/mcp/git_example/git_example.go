@@ -21,8 +21,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 )
 
 func main() {

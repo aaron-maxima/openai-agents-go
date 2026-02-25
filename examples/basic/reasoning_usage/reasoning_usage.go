@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
-	"github.com/nlpodyssey/openai-agents-go/usage"
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/usage"
 	"github.com/openai/openai-go/v3"
 )
 

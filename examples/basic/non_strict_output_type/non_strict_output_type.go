@@ -22,7 +22,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 /*

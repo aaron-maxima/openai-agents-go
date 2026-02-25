@@ -27,9 +27,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/nlpodyssey/openai-agents-go/asyncqueue"
-	"github.com/nlpodyssey/openai-agents-go/asynctask"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/asyncqueue"
+	"github.com/aaron-maxima/openai-agents-go/asynctask"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 )
 
 func audioToBase64(audioData [][]byte) string {

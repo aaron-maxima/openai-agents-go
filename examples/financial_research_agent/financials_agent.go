@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 // A sub‑agent focused on analyzing a company's fundamentals.

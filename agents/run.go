@@ -26,10 +26,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/nlpodyssey/openai-agents-go/memory"
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
-	"github.com/nlpodyssey/openai-agents-go/usage"
+	"github.com/aaron-maxima/openai-agents-go/memory"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/usage"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"
 )

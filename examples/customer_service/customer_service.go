@@ -25,10 +25,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/aaron-maxima/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents/extensions/handoff_prompt"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/google/uuid"
-	"github.com/nlpodyssey/openai-agents-go/agents"
-	"github.com/nlpodyssey/openai-agents-go/agents/extensions/handoff_prompt"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"
 )

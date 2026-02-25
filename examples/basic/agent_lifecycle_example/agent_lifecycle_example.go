@@ -20,7 +20,7 @@ import (
 	"math/rand"
 	"os"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 	"github.com/openai/openai-go/v3/packages/param"
 )
 

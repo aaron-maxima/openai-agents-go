@@ -20,8 +20,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/nlpodyssey/openai-agents-go/tracing"
-	"github.com/nlpodyssey/openai-agents-go/util/transforms"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/util/transforms"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/xeipuuv/gojsonschema"
 )

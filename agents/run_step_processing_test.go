@@ -18,8 +18,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/nlpodyssey/openai-agents-go/computer"
-	"github.com/nlpodyssey/openai-agents-go/usage"
+	"github.com/aaron-maxima/openai-agents-go/computer"
+	"github.com/aaron-maxima/openai-agents-go/usage"
 	"github.com/openai/openai-go/v3/responses"
 	"github.com/openai/openai-go/v3/shared/constant"
 	"github.com/stretchr/testify/assert"

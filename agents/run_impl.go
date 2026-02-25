@@ -23,11 +23,11 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/nlpodyssey/openai-agents-go/asyncqueue"
-	"github.com/nlpodyssey/openai-agents-go/computer"
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
-	"github.com/nlpodyssey/openai-agents-go/openaitypes"
-	"github.com/nlpodyssey/openai-agents-go/tracing"
+	"github.com/aaron-maxima/openai-agents-go/asyncqueue"
+	"github.com/aaron-maxima/openai-agents-go/computer"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/openaitypes"
+	"github.com/aaron-maxima/openai-agents-go/tracing"
 	"github.com/openai/openai-go/v3/packages/param"
 	"github.com/openai/openai-go/v3/responses"
 	"github.com/openai/openai-go/v3/shared/constant"
@@ -407,26 +407,14 @@ func (runImpl) ProcessModelResponse(
 	for _, outputUnion := range response.Output {
 		switch outputUnion.Type {
 		case "message":
-			output := responses.ResponseOutputMessage{
-				ID:      outputUnion.ID,
-				Content: outputUnion.Content,
-				Role:    outputUnion.Role,
-				Status:  responses.ResponseOutputMessageStatus(outputUnion.Status),
-				Type:    constant.ValueOf[constant.Message](),
-			}
+			output := outputUnion.AsMessage()
 			items = append(items, MessageOutputItem{
 				Agent:   agent,
 				RawItem: output,
 				Type:    "message_output_item",
 			})
 		case "file_search_call":
-			output := responses.ResponseFileSearchToolCall{
-				ID:      outputUnion.ID,
-				Queries: outputUnion.Queries,
-				Status:  responses.ResponseFileSearchToolCallStatus(outputUnion.Status),
-				Type:    constant.ValueOf[constant.FileSearchCall](),
-				Results: outputUnion.Results,
-			}
+			output := outputUnion.AsFileSearchCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseFileSearchToolCall(output),
@@ -434,12 +422,7 @@ func (runImpl) ProcessModelResponse(
 			})
 			toolsUsed = append(toolsUsed, "file_search")
 		case "web_search_call":
-			output := responses.ResponseFunctionWebSearch{
-				ID:     outputUnion.ID,
-				Action: openaitypes.ResponseFunctionWebSearchActionUnionFromResponseOutputItemUnionAction(outputUnion.Action),
-				Status: responses.ResponseFunctionWebSearchStatus(outputUnion.Status),
-				Type:   constant.ValueOf[constant.WebSearchCall](),
-			}
+			output := outputUnion.AsWebSearchCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseFunctionWebSearch(output),
@@ -447,27 +430,14 @@ func (runImpl) ProcessModelResponse(
 			})
 			toolsUsed = append(toolsUsed, "web_search")
 		case "reasoning":
-			output := responses.ResponseReasoningItem{
-				ID:               outputUnion.ID,
-				Summary:          outputUnion.Summary,
-				Type:             constant.ValueOf[constant.Reasoning](),
-				EncryptedContent: outputUnion.EncryptedContent,
-				Status:           responses.ResponseReasoningItemStatus(outputUnion.Status),
-			}
+			output := outputUnion.AsReasoning()
 			items = append(items, ReasoningItem{
 				Agent:   agent,
 				RawItem: output,
 				Type:    "reasoning_item",
 			})
 		case "computer_call":
-			output := responses.ResponseComputerToolCall{
-				ID:                  outputUnion.ID,
-				Action:              openaitypes.ResponseComputerToolCallActionUnionFromResponseOutputItemUnionAction(outputUnion.Action),
-				CallID:              outputUnion.CallID,
-				PendingSafetyChecks: outputUnion.PendingSafetyChecks,
-				Status:              responses.ResponseComputerToolCallStatus(outputUnion.Status),
-				Type:                responses.ResponseComputerToolCallTypeComputerCall,
-			}
+			output := outputUnion.AsComputerCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseComputerToolCall(output),
@@ -483,13 +453,7 @@ func (runImpl) ProcessModelResponse(
 				ComputerTool: *computerTool,
 			})
 		case "mcp_approval_request":
-			output := responses.ResponseOutputItemMcpApprovalRequest{
-				ID:          outputUnion.ID,
-				Arguments:   outputUnion.Arguments,
-				Name:        outputUnion.Name,
-				ServerLabel: outputUnion.ServerLabel,
-				Type:        constant.ValueOf[constant.McpApprovalRequest](),
-			}
+			output := outputUnion.AsMcpApprovalRequest()
 			items = append(items, MCPApprovalRequestItem{
 				Agent:   agent,
 				RawItem: output,
@@ -511,28 +475,14 @@ func (runImpl) ProcessModelResponse(
 					slog.String("serverLabel", output.ServerLabel))
 			}
 		case "mcp_list_tools":
-			output := responses.ResponseOutputItemMcpListTools{
-				ID:          outputUnion.ID,
-				ServerLabel: outputUnion.ServerLabel,
-				Tools:       outputUnion.Tools,
-				Type:        constant.ValueOf[constant.McpListTools](),
-				Error:       outputUnion.Error,
-			}
+			output := outputUnion.AsMcpListTools()
 			items = append(items, MCPListToolsItem{
 				Agent:   agent,
 				RawItem: output,
 				Type:    "mcp_list_tools_item",
 			})
 		case "mcp_call":
-			output := responses.ResponseOutputItemMcpCall{
-				ID:          outputUnion.ID,
-				Arguments:   outputUnion.Arguments,
-				Name:        outputUnion.Name,
-				ServerLabel: outputUnion.ServerLabel,
-				Type:        constant.ValueOf[constant.McpCall](),
-				Error:       outputUnion.Error,
-				Output:      outputUnion.Output,
-			}
+			output := outputUnion.AsMcpCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseOutputItemMcpCall(output),
@@ -540,12 +490,7 @@ func (runImpl) ProcessModelResponse(
 			})
 			toolsUsed = append(toolsUsed, "mcp")
 		case "image_generation_call":
-			output := responses.ResponseOutputItemImageGenerationCall{
-				ID:     outputUnion.ID,
-				Result: outputUnion.Result,
-				Status: outputUnion.Status,
-				Type:   constant.ValueOf[constant.ImageGenerationCall](),
-			}
+			output := outputUnion.AsImageGenerationCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseOutputItemImageGenerationCall(output),
@@ -553,14 +498,7 @@ func (runImpl) ProcessModelResponse(
 			})
 			toolsUsed = append(toolsUsed, "image_generation")
 		case "code_interpreter_call":
-			output := responses.ResponseCodeInterpreterToolCall{
-				ID:          outputUnion.ID,
-				Code:        outputUnion.Code,
-				Outputs:     outputUnion.Outputs,
-				Status:      responses.ResponseCodeInterpreterToolCallStatus(outputUnion.Status),
-				Type:        constant.ValueOf[constant.CodeInterpreterCall](),
-				ContainerID: outputUnion.ContainerID,
-			}
+			output := outputUnion.AsCodeInterpreterCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseCodeInterpreterToolCall(output),
@@ -568,13 +506,7 @@ func (runImpl) ProcessModelResponse(
 			})
 			toolsUsed = append(toolsUsed, "code_interpreter")
 		case "local_shell_call":
-			output := responses.ResponseOutputItemLocalShellCall{
-				ID:     outputUnion.ID,
-				Action: openaitypes.ResponseOutputItemLocalShellCallActionFromResponseOutputItemUnionAction(outputUnion.Action),
-				CallID: outputUnion.CallID,
-				Status: outputUnion.Status,
-				Type:   constant.ValueOf[constant.LocalShellCall](),
-			}
+			output := outputUnion.AsLocalShellCall()
 			items = append(items, ToolCallItem{
 				Agent:   agent,
 				RawItem: ResponseOutputItemLocalShellCall(output),
@@ -590,15 +522,7 @@ func (runImpl) ProcessModelResponse(
 				LocalShellTool: *localShellTool,
 			})
 		case "function_call":
-			output := responses.ResponseFunctionToolCall{
-				Arguments: outputUnion.Arguments,
-				CallID:    outputUnion.CallID,
-				Name:      outputUnion.Name,
-				Type:      constant.ValueOf[constant.FunctionCall](),
-				ID:        outputUnion.ID,
-				Status:    responses.ResponseFunctionToolCallStatus(outputUnion.Status),
-			}
-
+			output := outputUnion.AsFunctionCall()
 			toolsUsed = append(toolsUsed, output.Name)
 
 			// Handoffs

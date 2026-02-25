@@ -15,7 +15,7 @@
 package agents
 
 import (
-	"github.com/nlpodyssey/openai-agents-go/modelsettings"
+	"github.com/aaron-maxima/openai-agents-go/modelsettings"
 	"github.com/openai/openai-go/v3/packages/param"
 )
 

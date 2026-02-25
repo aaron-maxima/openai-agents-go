@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 const PlannerAgentPrompt = "You are a helpful research assistant. Given a query, come up with a set of web searches " +

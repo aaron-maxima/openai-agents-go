@@ -36,7 +36,7 @@ Explore the [examples](examples) directory to see the SDK in action:
 ## Installation
 
 ```
-go get github.com/nlpodyssey/openai-agents-go
+go get github.com/aaron-maxima/openai-agents-go
 ```
 
 ## Hello world example
@@ -48,7 +48,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 func main() {
@@ -79,7 +79,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/nlpodyssey/openai-agents-go/agents"
+	"github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 func main() {
@@ -115,7 +115,7 @@ import (
         "context"
         "fmt"
 
-        "github.com/nlpodyssey/openai-agents-go/agents"
+        "github.com/aaron-maxima/openai-agents-go/agents"
 )
 
 // Tool params type
